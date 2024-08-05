@@ -14,6 +14,9 @@ export default function Home() {
         <Button href='/sign-in' sx={{mr:1}} variant="contained">Log in</Button>
         <Button href="/sign-up" variant="contained">Sign Up</Button>
       </Box>
+      <Box>
+         <Button href='/review' sx={{mr:1 , mt:2}} variant="outlined">Review a Game! (working)</Button>
+      </Box>
     </Container>
   );
 }

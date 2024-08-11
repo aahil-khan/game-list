@@ -26,6 +26,7 @@ function ReviewForm(props){
                 description : description,
                 rating : rating,
                 platform : platform,
+                guid : props.guid
             };
 
             const sendData = async () => {

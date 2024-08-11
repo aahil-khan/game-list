@@ -10,6 +10,7 @@ import Slide from '@mui/material/Slide';
 import ReviewForm from "../components/reviewForm";
 import Box from '@mui/material/Box';
 import axios from "axios";
+import Particles from "../components/Particles";
 
 function App() {
 
@@ -18,7 +19,8 @@ function App() {
   const [gameInfo , setGameInfo] = React.useState({
     boxart : "",
     title : "",
-    description : ""
+    description : "",
+    guid: 0
   });
   const [hasClicked,setHasClicked] = React.useState(false);
   const [isUserSearching , setUserSearching] = React.useState(false);
@@ -35,7 +37,8 @@ function App() {
             setGameInfo({
               boxart : response.data.results[0].image.medium_url,
               title : response.data.results[0].name,
-              description : response.data.results[0].deck
+              description : response.data.results[0].deck,
+              guid : response.data.results[0].guid
             })
           }else{
             setGameInfo({
@@ -80,6 +83,7 @@ function App() {
   
 
   return (
+    <div>
     <Container maxWidth="xl" disableGutters={true} sx = {{mt:2 , ml:0 , mr:0 , display:"flex" , flexDirection:"column"}}>
       <Box gap={1} display={"flex"} flexDirection={"row"} justifyContent={"center"} alignItems={"center"}>
       <TextField onChange={handleChange} style={{width:"500px"}} onKeyDown={handleKeyDown} id="outlined-basic" placeholder="search game" variant="outlined" value={userQuery}/>
@@ -100,9 +104,11 @@ function App() {
       <Slide timeout={500} direction="right" in={isUserSearching} >
         <ActionAreaCard imgLink={gameInfo.boxart} name = {gameInfo.title} deck = {gameInfo.description} />
       </Slide>
-      <ReviewForm name={gameInfo.title} isUserSearching={isUserSearching}/>
+      <ReviewForm guid={gameInfo.guid} name={gameInfo.title} isUserSearching={isUserSearching}/>
     </Box>
     </Container>
+    <Particles id="tsparticles" />
+    </div>
   );
 }
 

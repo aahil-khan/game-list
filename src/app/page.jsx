@@ -16,9 +16,6 @@ export default function Home() {
         <Button href='/sign-in' sx={{ mr: 1 }} variant="contained">Log in</Button>
         <Button href="/sign-up" variant="contained">Sign Up</Button>
       </Box>
-      <Box>
-        <Button sx={{ mt: 2 }} href="/review" variant="outlined">Review A Game! (working)</Button>
-      </Box>
     </Container>
     <Particles id="tsparticles" />
     </div>

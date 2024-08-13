@@ -8,6 +8,7 @@ import PlatformSelect from "../components/platform";
 import axios from "axios";
 import DoneIcon from '@mui/icons-material/Done';
 import Zoom from '@mui/material/Zoom';
+import { StarBorder } from "@mui/icons-material";
 
 
 function ReviewForm(props){
@@ -17,6 +18,7 @@ function ReviewForm(props){
     const [platform , setPlatform] = React.useState("");
     const [submitClicked, setSubmitClicked] = React.useState(false);
     const [isTickVisible , setTickVisible] = React.useState(false);
+    const [isTextAreaFocused , setTextAreaFocused] = React.useState(false);
 
     React.useEffect(()=>{
         if(submitClicked){
@@ -26,7 +28,9 @@ function ReviewForm(props){
                 description : description,
                 rating : rating,
                 platform : platform,
-                guid : props.guid
+                guid : props.guid,
+                boxart : props.boxart,
+                deck: props.deck
             };
 
             const sendData = async () => {
@@ -69,20 +73,23 @@ function ReviewForm(props){
         setPlatform(value);
     }
 
+    function handleFocus(){
+        setTextAreaFocused(!isTextAreaFocused);
+    }
 
 
     return(
         <Collapse timeout={500} in={props.isUserSearching}>
             <Box mt={5} display={"flex"} flexDirection={"column"} alignItems={"center"} justifyContent={"center"}>
 
-                <TextField onChange={handleTextChange} type="text" multiline={true} rows={10} sx={{width:"500px"}} placeholder="Please write your game review here" variant="outlined" value={description}/>
+                <TextField style={{color:"#FFDB5C"}} onFocus={handleFocus} onBlur={handleFocus} onChange={handleTextChange} type="text" multiline={true} rows={10} sx={{width:"500px", backgroundColor: isTextAreaFocused ? "#eeeeee" : "#577B8D"}} placeholder="Please write your game review here" variant="outlined" value={description}/>
 
                 <Box sx={{width:"300px"}} mt={3} display={"flex"} flexDirection={"row"} gap={4} justifyContent={"center"} alignItems={"center"}>
-                    <Rating onChange={handleRating} size="large" name="game-rating" precision={0.5} value={rating}/>
+                    <Rating emptyIcon={<StarBorder fontSize="inherit" sx={{color:"white"}}/>} onChange={handleRating} size="large" name="game-rating" precision={0.5} value={rating}/>
                     <PlatformSelect onChange={handlePlatform} />
                 </Box>
                 <Box mt={3} display={"flex"} flexDirection={"row"} gap={2} justifyContent={"center"} alignItems={"center"}>
-                    <Button onClick={handleClick} variant="contained">Submit</Button>
+                    <Button href="/" style={{backgroundColor : "#577B8D"}} onClick={handleClick} variant="contained">Submit</Button>
                     <Zoom in={isTickVisible}>
                         <DoneIcon />
                     </Zoom>

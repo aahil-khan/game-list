@@ -15,7 +15,7 @@ function PlatformSelect(props){
       }
 
     return(
-        <FormControl fullWidth>
+        <FormControl style={{backgroundColor:"#577B8D"}} fullWidth>
               <InputLabel id="demo-simple-select-label">Platform</InputLabel>
               <Select required
                 labelId="demo-simple-select-label"

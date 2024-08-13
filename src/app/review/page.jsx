@@ -86,7 +86,7 @@ function App() {
     <div>
     <Container maxWidth="xl" disableGutters={true} sx = {{mt:2 , ml:0 , mr:0 , display:"flex" , flexDirection:"column"}}>
       <Box gap={1} display={"flex"} flexDirection={"row"} justifyContent={"center"} alignItems={"center"}>
-      <TextField onChange={handleChange} style={{width:"500px"}} onKeyDown={handleKeyDown} id="outlined-basic" placeholder="search game" variant="outlined" value={userQuery}/>
+          <TextField sx={{ input: { color: '#CAF4FF' } }} onChange={handleChange} style={{width:"500px" , backgroundColor : "#577B8D"}} onKeyDown={handleKeyDown} id="outlined-basic" placeholder="search game" variant="outlined" value={userQuery}/>
       <IconButton onClick={handleClick} aria-label="search">
         <SearchIcon />
       </IconButton>
@@ -104,10 +104,10 @@ function App() {
       <Slide timeout={500} direction="right" in={isUserSearching} >
         <ActionAreaCard imgLink={gameInfo.boxart} name = {gameInfo.title} deck = {gameInfo.description} />
       </Slide>
-      <ReviewForm guid={gameInfo.guid} name={gameInfo.title} isUserSearching={isUserSearching}/>
+      <ReviewForm deck={gameInfo.description} boxart={gameInfo.boxart} guid={gameInfo.guid} name={gameInfo.title} isUserSearching={isUserSearching}/>
     </Box>
     </Container>
-    <Particles id="tsparticles" />
+    <Particles id="tsparticles"/>
     </div>
   );
 }

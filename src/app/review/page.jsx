@@ -86,8 +86,8 @@ function App() {
     <div>
     <Container maxWidth="xl" disableGutters={true} sx = {{mt:2 , ml:0 , mr:0 , display:"flex" , flexDirection:"column"}}>
       <Box gap={1} display={"flex"} flexDirection={"row"} justifyContent={"center"} alignItems={"center"}>
-          <TextField sx={{ input: { color: '#CAF4FF' } }} onChange={handleChange} style={{width:"500px" , backgroundColor : "#577B8D"}} onKeyDown={handleKeyDown} id="outlined-basic" placeholder="search game" variant="outlined" value={userQuery}/>
-      <IconButton onClick={handleClick} aria-label="search">
+          <TextField sx={{ input: { color: 'black'  ,fontSize:18} }} onChange={handleChange} style={{width:"500px" , backgroundColor : "#F5F5DC"}} onKeyDown={handleKeyDown} id="outlined-basic" placeholder="search game" variant="outlined" value={userQuery}/>
+      <IconButton color="info" onClick={handleClick} aria-label="search">
         <SearchIcon />
       </IconButton>
       <Box display={"flex"} flexDirection={"column"} alignItems={"center"} justifyContent={"center"}>

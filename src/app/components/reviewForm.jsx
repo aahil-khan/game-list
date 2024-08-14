@@ -82,14 +82,14 @@ function ReviewForm(props){
         <Collapse timeout={500} in={props.isUserSearching}>
             <Box mt={5} display={"flex"} flexDirection={"column"} alignItems={"center"} justifyContent={"center"}>
 
-                <TextField style={{color:"#FFDB5C"}} onFocus={handleFocus} onBlur={handleFocus} onChange={handleTextChange} type="text" multiline={true} rows={10} sx={{width:"500px", backgroundColor: isTextAreaFocused ? "#eeeeee" : "#577B8D"}} placeholder="Please write your game review here" variant="outlined" value={description}/>
+                <TextField style={{color:"#F5F5DC"}} onFocus={handleFocus} onBlur={handleFocus} onChange={handleTextChange} type="text" multiline={true} rows={10} sx={{width:"500px", backgroundColor: isTextAreaFocused ? "#eeeeee" : "#F5F5DC"}} placeholder="Please write your game review here" variant="outlined" value={description}/>
 
                 <Box sx={{width:"300px"}} mt={3} display={"flex"} flexDirection={"row"} gap={4} justifyContent={"center"} alignItems={"center"}>
                     <Rating emptyIcon={<StarBorder fontSize="inherit" sx={{color:"white"}}/>} onChange={handleRating} size="large" name="game-rating" precision={0.5} value={rating}/>
                     <PlatformSelect onChange={handlePlatform} />
                 </Box>
                 <Box mt={3} display={"flex"} flexDirection={"row"} gap={2} justifyContent={"center"} alignItems={"center"}>
-                    <Button href="/" style={{backgroundColor : "#577B8D"}} onClick={handleClick} variant="contained">Submit</Button>
+                    <Button href="/" style={{backgroundColor : "#F5F5DC" , color:"black"}} onClick={handleClick} variant="contained">Submit</Button>
                     <Zoom in={isTickVisible}>
                         <DoneIcon />
                     </Zoom>

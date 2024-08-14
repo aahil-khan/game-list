@@ -1,27 +1,35 @@
 'use client';
-import { useEffect } from 'react';
+import React from 'react';
 import styles from './page.module.css';
 import Container from '@mui/material/Container';
-import Button from '@mui/material/Button';
 import { Box } from '@mui/material';
 import Particles from './components/Particles';
 import RenderGameTiles from './components/renderGameTiles';
+import { useRouter } from 'next/navigation';
+
 
 export default function Home() {
 
-  useEffect(()=>{
-    
-  },[])
+  const router = useRouter();
+
+  const [isUserSearching , setUserSearching] = React.useState(false);
+  const [params , setParams] = React.useState("");
+
+  function handleKeyDown(event){
+    if(event.key==='Enter'){
+      router.push("/review")
+    }
+  }
+  function handleSearchChange(event){
+    setParams(event.target.value);
+  }
 
 
   return (
     <div>
     <Container className={styles.main}>
-      <Box>
-        homepage description
-      </Box>
       <Box sx={{mt:5}}>
-        <RenderGameTiles condition="home" />
+        <RenderGameTiles condition={isUserSearching ? "search" : "home"} params={params} />
       </Box>
     </Container>
     <Particles id="tsparticles" />

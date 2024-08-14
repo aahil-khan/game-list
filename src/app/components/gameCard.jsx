@@ -18,7 +18,7 @@ const ActionAreaCard = forwardRef((props,ref)=>{
               image={props.imgLink}
               alt="box-art"
             />
-            <CardContent>
+            <CardContent style={{backgroundColor:"#F5F5DC"}}>
               <Typography gutterBottom variant="h5" component="div">
                 {props.name}
               </Typography>
